@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { FIREBASE_AUTH } from "./FirebaseConfig";
 import Home from "./app/screens/Home";
+import Details from "./app/screens/Details";
 import Login from "./app/screens/Login";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { UserContext } from "./app/context/UserContext";
@@ -50,7 +51,10 @@ export default function App() {
             component={InsideLayout}
             options={{ headerShown: false }}
           />
-        
+          <Stack.Screen
+            name="Details"
+            component={Details} // Add the Details component as a screen
+          />
         </>
         ) : (
           <Stack.Screen
