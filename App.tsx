@@ -9,6 +9,7 @@ import Details from "./app/screens/Details";
 import Login from "./app/screens/Login";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { UserContext } from "./app/context/UserContext";
+import Favorite from "./app/screens/Favourite";
 
 
 
@@ -26,6 +27,7 @@ function InsideLayout({ }) {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={Home}  />
+      <Drawer.Screen name="Favourite" component={Favorite}  />
     </Drawer.Navigator>
  
   );
