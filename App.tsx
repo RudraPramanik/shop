@@ -19,7 +19,6 @@ const Drawer = createDrawerNavigator();
 const InsideStack = createNativeStackNavigator();
 
 
-//insideLayout is the protected route when user loggedin only can visit it
 function InsideLayout({ }) {
 
   return (
@@ -49,7 +48,7 @@ export default function App() {
         {user ? (
           <>
           <Stack.Screen
-            name="Assessment"
+            name="Task"
             component={InsideLayout}
             options={{ headerShown: false }}
           />
@@ -65,8 +64,8 @@ export default function App() {
             options={{ headerShown: true }}
           />
         )}
-      </Stack.Navigator>
-    </NavigationContainer>
+      </Stack.Navigator>     
+      </NavigationContainer>
     </UserContext.Provider>
     
   );

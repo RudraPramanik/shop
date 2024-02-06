@@ -1,10 +1,15 @@
-// Favorite.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Favorite = () => {
-  const [favorites, setFavorites] = useState([]);
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
+
+const Favorite: React.FC = () => {
+  const [favorites, setFavorites] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadFavorites = async () => {
@@ -22,7 +27,7 @@ const Favorite = () => {
     loadFavorites();
   }, []);
 
-  const removeFromFavorites = async (productId) => {
+  const removeFromFavorites = async (productId: number) => {
     try {
       // Filter out the product with the given id
       const updatedFavorites = favorites.filter((fav) => fav.id !== productId);
@@ -64,57 +69,5 @@ const styles = StyleSheet.create({
 });
 
 export default Favorite;
-
-
-
-
-// // Favorite.tsx
-// import React, { useEffect, useState } from 'react';
-// import { View, Text, StyleSheet } from 'react-native';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// const Favorite = () => {
-//   const [favorites, setFavorites] = useState([]);
-
-//   useEffect(() => {
-//     const loadFavorites = async () => {
-//       try {
-//         // Retrieve favorites from AsyncStorage
-//         const favoritesString = await AsyncStorage.getItem('favorites');
-//         if (favoritesString) {
-//           setFavorites(JSON.parse(favoritesString));
-//         }
-//       } catch (error) {
-//         console.error('Error loading favorites:', error);
-//       }
-//     };
-
-//     loadFavorites();
-//   }, []);
-
-//   return (
-//     <View style={styles.container}>
-//       <Text>Favorite Screen</Text>
-//       {/* Display the list of favorite items */}
-//       {favorites.map((fav) => (
-//         <View key={fav.id}>
-//           <Text>{fav.title}</Text>
-//           <Text>${fav.price}</Text>
-//         </View>
-//       ))}
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-// });
-
-// export default Favorite;
-
 
 
