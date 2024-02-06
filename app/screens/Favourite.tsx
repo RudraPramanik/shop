@@ -44,12 +44,10 @@ const Favorite: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text>Favorite Screen</Text>
-      {/* Display the list of favorite items */}
       {favorites.map((fav) => (
         <View key={fav.id} style={styles.item}>
           <Text>{fav.title}</Text>
           <Text>${fav.price}</Text>
-          {/* Add a button to remove the item from favorites */}
           <Button title="Remove" onPress={() => removeFromFavorites(fav.id)} />
         </View>
       ))}

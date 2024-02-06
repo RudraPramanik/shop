@@ -63,7 +63,6 @@ const Login = () => {
         </>
       }
     </View>
-    // </KeyboardAvoidingView>
   );
 };
 
