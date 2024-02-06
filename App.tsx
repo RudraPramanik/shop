@@ -8,7 +8,8 @@ import Home from "./app/screens/Home";
 import Login from "./app/screens/Login";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { UserContext } from "./app/context/UserContext";
-import Favourite from "./app/screens/Favourite";
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -17,14 +18,13 @@ const InsideStack = createNativeStackNavigator();
 
 
 //insideLayout is the protected route when user loggedin only can visit it
-function InsideLayout({  }) {
+function InsideLayout({ }) {
 
   return (
     <Drawer.Navigator
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={Home}  />
-      <Drawer.Screen name="Favourite" component={Favourite} />
     </Drawer.Navigator>
  
   );
@@ -44,11 +44,14 @@ export default function App() {
       {/* conditionally render auth route or protected route */}
       <Stack.Navigator initialRouteName="Login">
         {user ? (
+          <>
           <Stack.Screen
-            name="Assesment"
+            name="Assessment"
             component={InsideLayout}
             options={{ headerShown: false }}
           />
+        
+        </>
         ) : (
           <Stack.Screen
             name="Login"
