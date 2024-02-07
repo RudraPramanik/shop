@@ -51,7 +51,6 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
       <Text style={styles.title} >{product.title}</Text>
       <Text style={styles.price} >${product.price}</Text>
       <Text style={styles.description} >${product.description}</Text>
-      {/* <Button title="Add to Favorites" onPress={addToFavorites} /> */}
       <TouchableOpacity onPress={addToFavorites} style={styles.button}>
             <Text style={styles.buttonText}>Add To Favourite</Text>
           </TouchableOpacity>

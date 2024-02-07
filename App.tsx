@@ -54,7 +54,7 @@ export default function App() {
           />
           <Stack.Screen
             name="Details"
-            component={Details} // Add the Details component as a screen
+            component={Details} 
           />
         </>
         ) : (
