@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useFocusEffect } from "@react-navigation/native";
+
 
 interface Product {
   id: number;
@@ -12,21 +14,23 @@ interface Product {
 const Favorite: React.FC = () => {
   const [favorites, setFavorites] = useState<Product[]>([]);
 
-  useEffect(() => {
-    const loadFavorites = async () => {
-      try {
-        // Retrieve favorites from AsyncStorage
-        const favoritesString = await AsyncStorage.getItem('favorites');
-        if (favoritesString) {
-          setFavorites(JSON.parse(favoritesString));
+  useFocusEffect(
+    React.useCallback(() => {
+      const loadFavorites = async () => {
+        try {
+          // Retrieve favorites from AsyncStorage
+          const favoritesString = await AsyncStorage.getItem("favorites");
+          if (favoritesString) {
+            setFavorites(JSON.parse(favoritesString));
+          }
+        } catch (error) {
+          console.error("Error loading favorites:", error);
         }
-      } catch (error) {
-        console.error('Error loading favorites:', error);
-      }
-    };
+      };
 
-    loadFavorites();
-  }, []);
+      loadFavorites();
+    }, [])
+  );
 
   const removeFromFavorites = async (productId: number) => {
     try {

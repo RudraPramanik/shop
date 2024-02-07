@@ -6,3 +6,6 @@ npm install
 
 to run:
 npx expo start
+
+
+video Link: https://youtu.be/fU9-dz4v7BU
