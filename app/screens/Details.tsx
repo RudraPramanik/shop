@@ -50,10 +50,13 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
       <View style={styles.detailsContainer} >
       <Text style={styles.title} >{product.title}</Text>
       <Text style={styles.price} >${product.price}</Text>
-      <Text style={styles.price} >${product.description}</Text>
-      <Button title="Add to Favorites" onPress={addToFavorites} />
+      <Text style={styles.description} >${product.description}</Text>
+      {/* <Button title="Add to Favorites" onPress={addToFavorites} /> */}
+      <TouchableOpacity onPress={addToFavorites} style={styles.button}>
+            <Text style={styles.buttonText}>Add To Favourite</Text>
+          </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.backButton}>
-        <Text style={styles.backButtonText}>Back to Home</Text>
+        <Text style={styles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
     </View>
     </View>
@@ -82,6 +85,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
   },
+  description:{
+    fontSize: 14,
+    marginBottom: 20,
+    marginHorizontal:10,
+  },
   backButton: {
     marginTop:20,
     fontSize: 16,
@@ -90,6 +98,21 @@ const styles = StyleSheet.create({
   backButtonText: {
     fontSize: 16,
     color: 'blue',
+  },
+  button: {
+    marginVertical: 10,
+    borderRadius: 8,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    borderColor:"#591091",
+    borderWidth:2,
+    elevation: 0,
+  },
+  buttonText: {
+    color:  "#591091",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
 
