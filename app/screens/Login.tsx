@@ -28,9 +28,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
     } catch (error: any) {
-      console.log(error);
       alert("Sign in failed" + error.message);
     } finally {
       setLoading(false);
@@ -48,7 +46,6 @@ const Login = () => {
       console.log(response);
       alert("Check your emails!");
     } catch (error: any) {
-      console.log(error);
       alert("Sign up failed" + error.message);
     } finally {
       setLoading(false);

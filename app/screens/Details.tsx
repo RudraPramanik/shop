@@ -22,7 +22,6 @@ type Props = {
 
 const Details: React.FC<Props> = ({ route, navigation }) => {
   const { product } = route.params;
-  console.log(product,'details page333333######')
   const addToFavorites = async () => {
     try {
       // Retrieve existing favorites from AsyncStorage or initialize an empty array
